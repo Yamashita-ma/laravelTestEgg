@@ -1,0 +1,301 @@
+/* 全体 */
+ul,li,a {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+body {
+    margin: 0;
+    font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    padding: 0 15%;
+}
+nav {
+    opacity: 0.9;
+}
+header {
+    display: flex;
+    padding: 0 16px;
+}
+header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+.menu {
+    margin-left: auto;
+}
+.menu #open{
+    font-size: 40px;
+    cursor: pointer;
+    line-height: 64px;
+}
+.menu #open.hide {
+    display: none;
+}
+.pc-logo {
+    position: fixed;
+    top:0;
+    z-index: 10;
+    width:100vw;
+    height:50px;
+    background-color: white;
+    opacity: 0.9;
+    margin-left: -40px;
+}
+
+
+  .title {
+    font-size: 25px;
+    background: linear-gradient(transparent 70%, #d9b44a 70%);
+  }
+ 
+
+/* ホーム */
+.intro {
+    font-size: 10pt;
+    padding: 1rem 2rem;
+    border-left: 6px double #000;
+}
+
+.recipe-intro {
+    margin: 30px 0 10px 0;
+}
+.recipe-intro:hover{
+    color: #d9b44a;
+}
+.recipe-all {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 3px #d9b44a;
+    border-radius: 10px;
+}
+.recipe {
+    padding-left: 3vw;
+}
+.recipes {
+    display: flex;
+}
+.recipes img {
+    width: 30%;
+    height:fit-content;
+    margin-top: 5px;
+}
+.ingredients-title,.cooking-title {
+    margin: 0 0 5px 0;
+    border-bottom: dotted 2px #d9b44a; 
+}
+.recipe-title {
+    position: relative;
+    display: inline-block;
+    padding: 0 65px;
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+  
+  .recipe-title:before,
+  .recipe-title:after {
+    position: absolute;
+    top: calc(50% - 3px);
+    width: 50px;
+    height: 6px;
+    content: '';
+    border-top: solid 2px #000;
+    border-bottom: solid 2px #000;
+  }
+  
+  .recipe-title:before {
+    left: 0;
+  }
+  
+  .recipe-title:after {
+    right: 0;
+  }
+
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 10;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+.overlay ul {
+    padding-top: 30px;
+    font-size: 30px;
+}
+.overlay li{
+    margin: 2% 0;
+}
+.overlay #close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 40px;
+    cursor: pointer;
+}
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+dl{
+    margin: 0;
+}
+dl > div {
+    margin-bottom: 10px;
+}
+dt {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+dt::after{
+    content:'+';
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    transition: transform .5s;
+}
+dl > div.appear dt::after {
+    transform: rotate(45deg);
+}
+dd{
+    margin:0;
+    display: none;
+}
+dl > div.appear dd{
+    display:block;
+    animation: .8s fadeIn;
+}
+.error{
+    color: red;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.pc-menu{
+    display:none;
+}
+
+/* 投稿 */
+.create-label{
+    display: block;
+}
+
+/* みんなの卵かけご飯 */
+.list {
+    margin: 50px 0;
+	padding: 20px;
+	position: relative;
+    text-align:center;
+    display: flex;
+}
+.list::before, .list::after {
+	content: '';
+	width: 20px;
+	height: 100%;
+	position: absolute;
+}
+.list::before {
+	border-left: solid 2px #d9b44a;
+	border-top: solid 2px #d9b44a;
+	border-bottom: solid 2px #d9b44a;
+	top: 0;
+	left: 0;
+}
+.list::after {
+	border-right: solid 2px #d9b44a;
+	border-top: solid 2px #d9b44a;
+	border-bottom: solid 2px #d9b44a;
+	top: 0;
+	right: 0;
+}
+input, textarea{
+    width: 100%;
+    padding: 4px;
+}
+input{
+    height: 50px;
+}
+.form_btn{
+    text-align: right;
+}
+.list-photo{
+    margin-top: 10px;
+}
+.list-article{
+    text-align: left;
+    margin-left: 30px;
+}
+.list-article-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.list-article-body{
+    font-size: 15px;
+}
+
+@media(max-width:800px){
+    .intro,.title{
+        margin: 0 0 30px 0;
+    }
+    .pc-logo{
+        display: none;
+    }
+    /* ホーム */
+    .intro {
+        font-size: 10px;
+    }
+    .topphoto{
+        width:100vw;
+    }
+    .recipes {
+        display: block;
+    }
+    .recipe-all {
+        text-align: center;
+    }
+    .recipes img {
+        width: 60%;
+        height:fit-content;
+        margin-bottom: 10px;
+    }
+    /* みんなの卵かけご飯 */
+    .list{
+        display: block;
+    }
+    .list-photo{
+        margin-bottom: 10px;
+    }
+}
+
+@media(min-width:800px){
+    .intro,.title{
+        margin: 130px 0 50px 0;
+    }
+    .pc-menu{
+        display: block;
+        margin-left: auto;
+    }
+    .pc-menu ul {
+        display: flex;
+    }
+    .pc-menu li {
+        display: block;
+        margin: 10px;
+        text-align: center;
+    }
+    .pc-menu a:hover {
+        text-decoration: underline;
+    }
+    .menu{
+        display: none;
+    }
+}
+
